@@ -6,7 +6,7 @@ Usage: `./otterBot.py`
 
 Take "screen"shots of your Whiteboard with a static camera and send them via Telegram.
 
-#### prerequisite
+#### Prerequisites
 
 Run `pip install python-telegram-bot --upgrade`
 
