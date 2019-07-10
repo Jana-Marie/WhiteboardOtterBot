@@ -1,4 +1,4 @@
-# WhiterboardOtterBot
+# WhiteboardOtterBot
 
 SBC + Webcam + Whiteboard + Telegram = WhiterboardOtterBot
 
