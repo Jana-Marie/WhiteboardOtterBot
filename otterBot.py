@@ -8,6 +8,9 @@ from PIL import Image
 from functools import wraps
 from restrict import restricted
 import configparser
+#from cv2 import *
+import subprocess
+
 
 config = configparser.ConfigParser()
 config.read('config.txt')
@@ -33,8 +36,16 @@ key =   [['Get-Image'],['Schleck']]
 #custom functions
 @restricted
 def _otter(bot,update):
-    #Todo Webcam
-    pass
+    #cam = VideoCapture(0)                      # cv2 only allows videocapture up to 1920*1080px but the webcam supports 2304*1536px
+    #cam.set(CAP_PROP_FRAME_WIDTH, 10000)
+    #cam.set(CAP_PROP_FRAME_HEIGHT, 10000)
+    #retval, data = cam.read()
+    #cam.release()
+    #imwrite('whiteboard.jpeg',data)
+    subprocess.run(["uvccapture", "-m","-x2304","-y1536", "-owhiteboard.jpeg"])
+    bot.send_photo(update.message.chat_id, photo=open('whiteboard.jpeg', 'rb'))
+    bot.send_document(chat_id=update.message.chat_id, document=open('whiteboard.jpeg', 'rb'))
+
 
 @restricted
 def _schleck(bot,update):
